@@ -17,6 +17,7 @@ import { randomUUID } from "crypto";
   }
 
   try {
+    console.log (params.id);
     await axios.post(BASE_URL + endpoint, params, {
       headers: {
         "Content-Type": "application/json"

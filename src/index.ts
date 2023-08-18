@@ -25,7 +25,7 @@ app.post("/main-request", async (req: Request, res: Response) => {
 
   try {
     const params = {
-      id: randomUUID(),
+      id: dto.id,
       data: {
         email: dto.data.email,
         name: dto.data.name,
@@ -46,6 +46,9 @@ app.listen(port, () => {
 });
 
 export class RequestDTO {
+  @IsNotEmpty()
+  @IsString()
+  id!: string;
   @IsDefined()
   @IsNotEmptyObject()
   @IsObject()
